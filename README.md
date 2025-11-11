@@ -9,12 +9,17 @@ The app applies **all SOLID principles** and follows well-known **design pattern
 ## 🧠 Key Concepts Implemented  
 
 ### 🔹 Clean Architecture  
-The project is structured into **three main layers**:
-- **Presentation Layer** – Handles UI and user interaction using `Bloc` for state management.  
-- **Domain Layer** – Contains business logic and use cases.  
-- **Data Layer** – Responsible for API calls, local data caching, and repositories.
+The project is structured into **Four main layers**:
 
-Each layer is **independent** and communicates only through well-defined **interfaces/contracts**.
+🔹 Presentation Layer – Manages the UI and user interactions, using Bloc or Cubit for state management.
+
+🔹 Domain Layer – Contains the core business logic, entities, and use cases independent of any external frameworks.
+
+🔹 Data Layer – Handles data sources such as APIs and local storage, and implements repository interfaces defined in the domain layer.
+
+🔹 API Layer – Provides the network client setup and configuration using Dio and Retrofit for efficient API communication.
+
+-- Each layer is **independent** and communicates only through well-defined **interfaces/contracts**.
 
 ---
 
@@ -65,17 +70,19 @@ Each layer is **independent** and communicates only through well-defined **inter
 ```
 lib/
 │
-├── config/                # App configuration (DI setup, constants, etc.)
+├── config/                 # App configuration (dependency injection, routes, themes, etc.)
 │
-├── core/                  # Shared utilities, base classes, error handling
+├── core/                   # Shared utilities, base classes, error handling, and constants
+│
 │
 ├── features/
 │   └── home/
-│       ├── data/          # Data sources, models, repositories
-│       ├── domain/        # Entities, repositories, use cases
-│       └── presentation/  # UI, ViewModels, Bloc, States
+|       |── api/            # Network layer (Dio setup, Retrofit clients, API endpoints)
+│       ├── data/           # Data sources, models, repositories implementations
+│       ├── domain/         # Entities, repository interfaces, and use cases
+│       └── presentation/   # UI screens, widgets, Bloc/Cubit, and states
 │
-└── main.dart              # App entry point
+└── main.dart               # Application entry point
 ```
 
 ---
@@ -84,7 +91,7 @@ lib/
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/yourusername/clean_arch_flutter_app.git
+   git clone (https://github.com/Mahmoudyuones/clean_arch.git)
    ```
 2. Get dependencies:  
    ```bash
